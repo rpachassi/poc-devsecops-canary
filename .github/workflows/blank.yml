@@ -45,7 +45,7 @@ jobs:
               "tenantId": "${{ secrets.AZURE_CREDENTIALS.tenant }}"
             }
           cluster-name: ${{ env.AKS_CLUSTER_NAME }}
-          resource-group: ${{ env.RESOURCE_GROUP }}
+          resource-group: ${{ env.RESOURCE_GROUP }}
  
       - name: Deploy app
         uses: azure/k8s-deploy@v1.3
