@@ -17,8 +17,8 @@ env:
   ACR_NAME: jamesdemo.azurecr.io
   ACR_REPO_NAME: blue-nginx
   ARTIFACT_NAME: 1
-  RESOURCE_GROUP: James-test-rg
-  AKS_CLUSTER_NAME: bluegreen-demo-aks
+  RESOURCE_GROUP: kuberetesServices
+  AKS_CLUSTER_NAME: myAKSKubernetes
   
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -44,8 +44,8 @@ jobs:
         with:
           namespace: default
           manifests: |
-            ./kubernetes/service.yaml
-            ./kubernetes/blue-deploy.yaml
+            ./service.yaml
+            ./blue-deploy.yaml
           images: |
             jamesdemo.azurecr.io/blue-nginx:1
           strategy: canary
