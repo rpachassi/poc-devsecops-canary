@@ -80,8 +80,8 @@ jobs:
         with:
           namespace: default
           manifests: |
-            ./kubernetes/service.yaml
-            ./kubernetes/green-deploy.yaml
+            ./service.yaml
+            ./green-deploy.yaml
           images: |
             jamesdemo.azurecr.io/green-nginx:1
           strategy: canary
@@ -96,8 +96,8 @@ jobs:
         with:
           namespace: default
           manifests: |
-            ./kubernetes/service.yaml
-            ./kubernetes/blue-deploy.yaml
+            ./service.yaml
+            ./blue-deploy.yaml
           images: |
             jamesdemo.azurecr.io/blue-nginx:1
           strategy: canary
