@@ -40,12 +40,12 @@ jobs:
         with:
           creds: |
             {
-              "clientId": "${{ secrets.AZURE_CREDENTIALS.appId }}",
-              "clientSecret": "${{ secrets.AZURE_CREDENTIALS.password }}",
-              "tenantId": "${{ secrets.AZURE_CREDENTIALS.tenant }}"
+              "appId": "${{ secrets.AZURE_CREDENTIALS.appId }}",
+              "password": "${{ secrets.AZURE_CREDENTIALS.password }}",
+              "tenant": "${{ secrets.AZURE_CREDENTIALS.tenant }}"
             }
           cluster-name: ${{ env.AKS_CLUSTER_NAME }}
-          resource-group: ${{ env.RESOURCE_GROUP }}
+          resource-group: ${{ env.RESOURCE_GROUP }}
  
       - name: Deploy app
         uses: azure/k8s-deploy@v1.3
