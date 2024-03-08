@@ -35,18 +35,14 @@ jobs:
       - name: Print
         run: echo "${{ secrets.AZURE_CREDENTIALS }}"
 
-      - name: Set cluster context
-        uses: azure/aks-set-context@v1
+      - name: Login to Azure
+        uses: azure/login@v1
         with:
-          creds: |
-            {
-              "appId": ${{fromJson(secrets.AZURE_CREDENTIALS).appId}},
-              "password": ${{fromJson(secrets.AZURE_CREDENTIALS).password}},
-              "tenant": ${{fromJson(secrets.AZURE_CREDENTIALS).tenant}}
-            }
-          cluster-name: ${{ env.AKS_CLUSTER_NAME }}
-          resource-group: ${{ env.RESOURCE_GROUP }}
+          creds: '${{ secrets.AZURE_CREDENTIALS }}'
       
+      - name: Set AKS context
+        run: az aks get-credentials --resource-group ${{ env.RESOURCE_GROUP }} --name ${{ env.AKS_CLUSTER_NAME }}
+ 
       - name: Deploy app
         uses: azure/k8s-deploy@v1.3
         with:
