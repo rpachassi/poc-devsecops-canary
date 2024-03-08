@@ -40,9 +40,9 @@ jobs:
         with:
           creds: |
             {
-              "clientId": "${{ secrets.clientId }}",
-              "clientSecret": "${{ secrets.clientSecret }}",
-              "tenantId": "${{ secrets.tenantId }}"
+              "clientId": "${{ secrets.AZURE_CREDENTIALS.appId }}",
+              "clientSecret": "${{ secrets.AZURE_CREDENTIALS.password }}",
+              "tenantId": "${{ secrets.AZURE_CREDENTIALS.tenant }}"
             }
           cluster-name: ${{ env.AKS_CLUSTER_NAME }}
           resource-group: ${{ env.RESOURCE_GROUP }}
