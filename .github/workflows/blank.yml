@@ -38,7 +38,12 @@ jobs:
       - name: Set cluster context
         uses: azure/aks-set-context@v1
         with:
-          creds: '{"appId": "${{ secrets.AZURE_CREDENTIALS.appId }}", "password": "${{ secrets.AZURE_CREDENTIALS.password }}", "tenant": "${{ secrets.AZURE_CREDENTIALS.tenant }}"}'
+          creds: |
+            {
+              "appId": "${{ secrets.AZURE_CREDENTIALS.appId }}",
+              "password": "${{ secrets.AZURE_CREDENTIALS.password }}",
+              "tenant": "${{ secrets.AZURE_CREDENTIALS.tenant }}"
+            }
           cluster-name: ${{ env.AKS_CLUSTER_NAME }}
           resource-group: ${{ env.RESOURCE_GROUP }}
  
