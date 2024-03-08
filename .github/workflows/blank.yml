@@ -42,8 +42,7 @@ jobs:
             {
               "clientId": "${{ secrets.AZURE_CREDENTIALS.appId }}",
               "clientSecret": "${{ secrets.AZURE_CREDENTIALS.password }}",
-              "tenantId": "${{ secrets.AZURE_CREDENTIALS.tenant }}"
-            }
+              "tenantId": "${{ secrets.AZURE_CREDENTIALS.tenant }}"}
       
       - name: Set AKS context
         run: az aks get-credentials --resource-group ${{ env.RESOURCE_GROUP }} --name ${{ env.AKS_CLUSTER_NAME }}
